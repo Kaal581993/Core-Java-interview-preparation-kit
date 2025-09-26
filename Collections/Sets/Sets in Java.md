@@ -1,4 +1,4 @@
-Great — let’s do a **deep dive into Sets in Java**.
+**deep dive into Sets in Java**.
 We’ll explore **HashSet, LinkedHashSet, SortedSet, TreeSet** in detail, along with methods, iterative code examples, and then end with a **comparison table**.
 
 ---
