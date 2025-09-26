@@ -234,4 +234,4 @@ public class StackExample {
 
 ---
 
-👉 Would you like me to also create a **visual memory diagram** for how each structure stores elements (ArrayList contiguous vs LinkedList node pointers vs Stack push/pop layout)? That would make the comparison much clearer.
+
