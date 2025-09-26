@@ -46,8 +46,39 @@ public class HashSetDemo {
         // or use java.util.concurrent.CopyOnWriteArrayList instead.
         // HashSet is not thread-safe, so if you need thread safety, consider using ConcurrentHashMap.
         // For more information, refer to Java's official documentation on Collections and Concurrency.
-        
 
+        hashSet.clear(); // Remove all elements
+        hashSet.add("Apple");
+        hashSet.add("Banana");
+        hashSet.add("Cherry");
+        hashSet.add("Date");     
+        hashSet.add("Orange");  
+        //Let's see the HashSet with retaining all elements from another set using retainAll()
+        System.out.println("Current Hash Set: " + hashSet);
 
+        hashSet.retainAll(anotherSet);
+        System.out.println("After retaining elements from another set: " + hashSet);
+        // Note: retainAll() modifies the original set, 
+        // it doesn't return a new set with the retained elements.
+        // Where does the new elements go? They are still in the original set.
+        System.out.println("Original set after retainAll: " + hashSet);
+        System.out.println("Anotherset after retainAll: " + anotherSet);
+        //So Retain All works like this:
+        // It retains only the elements that are present in both sets.
+        // It modifies the original set to keep only those elements which are common between both sets.
+        // An intersection of two sets.
+
+        //Now let's see how to use removeAll() method
+        hashSet.add("Apple");
+        hashSet.add("Banana");
+        hashSet.add("Cherry");
+        hashSet.add("Date");     
+        hashSet.add("Orange");  
+
+        System.out.println("Current Hash Set: " + hashSet);
+
+        hashSet.removeAll(anotherSet);
+        System.out.println("After removing all elements from another set: " + hashSet);
+        // Note: removeAll() modifies the original set,
     }
 }
