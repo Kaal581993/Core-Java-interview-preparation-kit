@@ -8,6 +8,14 @@ public class TreeSetDemo {
         treeSet.add(10);
         treeSet.add(30);
         treeSet.add(20);
+        treeSet.add(40);
+        // treeSet.add(null); // NullPointerException if uncommented
+            treeSet.add(20); // Duplicate, will be ignored
+            System.out.println("TreeSet size: " + treeSet.size()); // 5
+            System.out.println("TreeSet contains 30? " + treeSet.contains(30)); // true
+            System.out.println("TreeSet contains 50? " + treeSet.contains(50)); // true
+            System.out.println("TreeSet contains 100? " + treeSet.contains(100)); // false
+
 
         // Iteration gives sorted order
         System.out.println("TreeSet elements: " + treeSet);
@@ -18,7 +26,15 @@ public class TreeSetDemo {
         System.out.println("HeadSet (<30): " + treeSet.headSet(30));
         System.out.println("TailSet (>=20): " + treeSet.tailSet(20));
         System.out.println("SubSet (10 to 30): " + treeSet.subSet(10, 30));
-        
+        // Let's have a look at navigator methods
+        System.out.println("Lower than 30: " + treeSet.lower(30)); // 20
+        System.out.println("Higher than 30: " + treeSet.higher(30)); // 50
+        System.out.println("Floor of 25: " + treeSet.floor(25)); // 20
+        System.out.println("Ceiling of 25: "+ treeSet.ceiling(25)); // 30
+        // Key Methods
+        System.out.println("Contains 20? " + treeSet.contains(20)); // true
+        treeSet.remove(20);
+        System.out.println("After removal: " + treeSet);    
     }
 }
 
