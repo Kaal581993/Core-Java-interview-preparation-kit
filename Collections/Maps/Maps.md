@@ -195,4 +195,3 @@ When we use:
 
 ---
 
-Do you want me to **expand this further into a "word-by-word + interview-ready explanation" (like we did with JS topics)**, where I explain **each keyword and method in code line by line** with real-world analogies?
