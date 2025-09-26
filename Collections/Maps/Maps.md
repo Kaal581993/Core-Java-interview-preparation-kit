@@ -195,3 +195,137 @@ When we use:
 
 ---
 
+let’s go **deep into all distinct methods of Maps in Java**.
+ **all methods**, we’ll split them into:
+
+1. **Core Map Interface (`java.util.Map`)**
+2. **Default methods added in Java 8+ (functional style, streams)**
+3. **SortedMap (extra methods)**
+4. **NavigableMap (extra methods)**
+5. **Specific implementation behaviors (HashMap, LinkedHashMap, TreeMap)**
+
+---
+
+# **1. Map Interface – Core Methods**
+
+```java
+// Basic CRUD operations
+V put(K key, V value)                   // Insert/replace a key-value mapping
+V get(Object key)                       // Retrieve value for a key
+V remove(Object key)                    // Remove mapping by key
+boolean containsKey(Object key)         // Check if key exists
+boolean containsValue(Object value)     // Check if value exists
+int size()                              // Number of key-value pairs
+boolean isEmpty()                       // Check if map is empty
+void clear()                            // Remove all mappings
+
+// Bulk operations
+void putAll(Map<? extends K, ? extends V> m)  // Copy all entries from another map
+
+// Collection views
+Set<K> keySet()                         // All keys as a Set
+Collection<V> values()                  // All values as a Collection
+Set<Map.Entry<K,V>> entrySet()          // All entries as a Set
+```
+
+---
+
+# **2. Default Methods (Java 8+)**
+
+These came to make `Map` more **functional programming friendly**:
+
+```java
+V getOrDefault(Object key, V defaultValue)   // Return value or fallback
+
+V putIfAbsent(K key, V value)                // Insert only if key is absent
+boolean remove(Object key, Object value)     // Remove only if key maps to value
+boolean replace(K key, V oldValue, V newVal) // Replace only if key maps to oldVal
+V replace(K key, V value)                    // Replace value if key exists
+
+void forEach(BiConsumer<? super K,? super V> action)   // Apply action to each entry
+void replaceAll(BiFunction<? super K,? super V,? extends V> function) // Replace values
+
+V compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction)
+V computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+
+V merge(K key, V value, BiFunction<? super V, ? super V, ? extends V> remappingFunction)
+```
+
+---
+
+# **3. SortedMap (Interface extending Map)**
+
+Specialized for **sorted key order**:
+
+```java
+Comparator<? super K> comparator()       // Comparator used (null if natural ordering)
+K firstKey()                             // Lowest key
+K lastKey()                              // Highest key
+SortedMap<K,V> headMap(K toKey)          // Keys strictly less than toKey
+SortedMap<K,V> tailMap(K fromKey)        // Keys greater/equal to fromKey
+SortedMap<K,V> subMap(K fromKey, K toKey)// Range of keys [fromKey, toKey)
+```
+
+---
+
+# **4. NavigableMap (extends SortedMap)**
+
+Enhances `SortedMap` with **navigation methods** (used by TreeMap):
+
+```java
+Map.Entry<K,V> lowerEntry(K key)         // Entry < key
+K lowerKey(K key)                        // Key < key
+Map.Entry<K,V> floorEntry(K key)         // Entry <= key
+K floorKey(K key)                        // Key <= key
+Map.Entry<K,V> ceilingEntry(K key)       // Entry >= key
+K ceilingKey(K key)                      // Key >= key
+Map.Entry<K,V> higherEntry(K key)        // Entry > key
+K higherKey(K key)                       // Key > key
+
+Map.Entry<K,V> firstEntry()              // Smallest entry
+Map.Entry<K,V> lastEntry()               // Largest entry
+Map.Entry<K,V> pollFirstEntry()          // Remove & return first
+Map.Entry<K,V> pollLastEntry()           // Remove & return last
+
+NavigableSet<K> navigableKeySet()        // Keys as NavigableSet
+NavigableMap<K,V> descendingMap()        // Reverse order view
+NavigableSet<K> descendingKeySet()       // Keys in reverse order
+```
+
+---
+
+# **5. Specific Implementations**
+
+### **HashMap**
+
+* Inherits all methods from `Map`.
+* Special behavior: **one null key allowed**, multiple null values allowed.
+
+### **LinkedHashMap**
+
+* Same as HashMap, but maintains **insertion order** or **access order** (if `accessOrder = true` in constructor).
+* Adds no new methods.
+
+### **TreeMap**
+
+* Implements **NavigableMap**.
+* Adds **all navigation + sorted methods**.
+* Does **not allow null keys**.
+
+---
+
+# ✅ **Summary Table of Methods**
+
+| **Category**          | **Methods**                                                                                                                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Core CRUD**         | `put`, `get`, `remove`, `size`, `isEmpty`, `clear`, `putAll`                                                                                                                                                                       |
+| **Checks**            | `containsKey`, `containsValue`                                                                                                                                                                                                     |
+| **Views**             | `keySet`, `values`, `entrySet`                                                                                                                                                                                                     |
+| **Java 8+ Additions** | `getOrDefault`, `putIfAbsent`, `remove(key, value)`, `replace`, `replaceAll`, `forEach`, `compute`, `computeIfAbsent`, `computeIfPresent`, `merge`                                                                                 |
+| **SortedMap**         | `comparator`, `firstKey`, `lastKey`, `headMap`, `tailMap`, `subMap`                                                                                                                                                                |
+| **NavigableMap**      | `lowerEntry`, `lowerKey`, `floorEntry`, `floorKey`, `ceilingEntry`, `ceilingKey`, `higherEntry`, `higherKey`, `firstEntry`, `lastEntry`, `pollFirstEntry`, `pollLastEntry`, `navigableKeySet`, `descendingMap`, `descendingKeySet` |
+
+---
+
+👉 Would you like me to now **write a big code example** that demonstrates **all these methods one by one** with commented outputs — so you get a practical reference for interviews and projects?
