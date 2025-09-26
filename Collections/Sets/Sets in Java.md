@@ -176,5 +176,3 @@ public class TreeSetDemo {
 4. Deep dive into **TreeSet** → Real sorted implementation.
 
 ---
-
-👉 Would you like me to also include **code that demonstrates all four in a single program** with detailed inline comments for direct comparison (like a mini-lab), or keep them separate as we’ve done?
