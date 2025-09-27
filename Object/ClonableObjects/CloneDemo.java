@@ -38,6 +38,7 @@ class Person implements Cloneable {
 }
 
 public class CloneDemo {
+
     public static void main(String[] args) throws CloneNotSupportedException {
         // 1. Original Object
         Person p1 = new Person("Alice", 25);
@@ -60,4 +61,5 @@ public class CloneDemo {
         p5.address.city = "Berlin"; // modify original
         System.out.println("Deep Clone - p6 address: " + p6.address.city); // Paris (independent)
     }
+    
 }
