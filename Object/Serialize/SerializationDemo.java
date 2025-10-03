@@ -1,20 +1,20 @@
 
 import java.io.*;
 
-// Step 1: Create a class that implements Serializable
-class Student implements Serializable {
-    private static final long serialVersionUID = 1L; // version control
+// // Step 1: Create a class that implements Serializable
+// class Student implements Serializable {
+//     private static final long serialVersionUID = 1L; // version control
     
-    String name;
-    int age;
-    transient String password; // won't be serialized
+//     String name;
+//     int age;
+//     transient String password; // won't be serialized
     
-    public Student(String name, int age, String password) {
-        this.name = name;
-        this.age = age;
-        this.password = password;
-    }
-}
+//     public Student(String name, int age, String password) {
+//         this.name = name;
+//         this.age = age;
+//         this.password = password;
+//     }
+// }
 
 public class SerializationDemo {
     public static void main(String[] args) {
