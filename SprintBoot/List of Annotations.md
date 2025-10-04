@@ -173,4 +173,3 @@ If using **Jersey / RESTEasy** instead of Spring Web:
 * For **distributed systems**, look at:
   `@EnableEurekaClient`, `@LoadBalanced`, `@RefreshScope`.
 
-Would you like me to create a **PDF cheat sheet** of all these annotations for easy reference?
